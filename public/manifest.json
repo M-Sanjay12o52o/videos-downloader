@@ -1,0 +1,33 @@
+{
+  "name": "Twitter Video Downloader",
+  "description": "Click a button to download a video on a Twitter post, even on private profiles.",
+  "version": "1.0.22",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "cookies", "tabs"],
+  "host_permissions": [
+    "*://*.twitter.com/*",
+    "*://twitter.com/*",
+    "*://youtube-video-download-express-server.onrender.com/*",
+    "*://youtube.com/*",
+    "*://*.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Twitter Video Downloader: Click while on a Twitter post to download its video",
+    "default_icon": {
+      "16": "/images/download.png",
+      "32": "/images/download.png",
+      "48": "/images/download.png",
+      "128": "/images/download.png"
+    }
+  },
+  "icons": {
+    "16": "/images/download.png",
+    "32": "/images/download.png",
+    "48": "/images/download.png",
+    "128": "/images/download.png"
+  }
+}

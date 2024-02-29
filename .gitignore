@@ -1,0 +1,7 @@
+dist
+node_modules/
+
+managed_context
+test_suite_analysis
+
+.env

@@ -1,0 +1,42 @@
+{
+  "name": "video-downloader",
+  "version": "1.0.22",
+  "description": "Browser extension to download Twitter videos, even from private accounts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --config ./webpack/webpack.dev.js",
+    "build": "webpack --config ./webpack/webpack.prod.js",
+    "package": "(cd dist; zip -r extension.zip ./*)"
+  },
+  "keywords": [
+    "twitter",
+    "video",
+    "downloader",
+    "private",
+    "chrome",
+    "extension"
+  ],
+  "devDependencies": {
+    "@types/chrome": "^0.0.177",
+    "@types/jest": "^28.1.2",
+    "copy-webpack-plugin": "^10.2.3",
+    "css-loader": "^6.6.0",
+    "jest": "^28.1.1",
+    "style-loader": "^3.3.1",
+    "ts-jest": "^28.0.5",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.5",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "crypto-browserify": "^3.12.0",
+    "dotenv": "^16.4.5",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "preact": "^10.6.5"
+  }
+}
