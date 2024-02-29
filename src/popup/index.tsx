@@ -3,9 +3,6 @@ import { StateUpdater, useEffect, useState } from 'preact/hooks';
 import { VideoItem, Message, ReceiveTwitterVideosPayload, ReceiveErrorMessagePayload, ReceiveInfoMessagePayload, RequestTwitterVideosPayload, CompleteTwitterEnvironmentSetupPayload } from '../abi';
 import './popup.css';
 import axios from 'axios';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 render(<App />, document.getElementById('root'));
 
@@ -16,10 +13,6 @@ function App(props: any) {
 	const [youtubevideoList, updateYoutubeVideoList]: any = useState(null);
 	const [window, updateWindow]: [string | null, StateUpdater<string | null>] = useState(null);
 	const [urlValue, updateUrlValue]: [string | null, StateUpdater<string | null>] = useState(null);
-
-	console.log("urlValue: ", urlValue)
-	console.log("window: ", window);
-	console.log("youtubeVideoList: ", youtubevideoList)
 
 	useEffect(() => {
 		chrome.tabs.query({ active: true }, (tabs) => {
@@ -40,7 +33,7 @@ function App(props: any) {
 				console.log("Fetching YouTube video data...");
 
 				try {
-					let response = await axios.get(`${process.env.SERVER_URL}/download?url=${urlValue}`);
+					let response = await axios.get(`https://youtube-video-download-express-server-1.onrender.com/download?url=${urlValue}`);
 					let data = response.data;
 
 					updateYoutubeVideoList(data);
@@ -63,6 +56,11 @@ function App(props: any) {
 							<LinkCard formatName={formatName} />
 						</div>
 					))}
+					{urlValue.includes("https://www.youtube.com/watch") && (
+						<div style={{ fontSize: '1.5em' }}>
+							<p>ℹ️ This tab isn't a Youtube Video page</p>
+						</div>
+					)}
 				</div>
 			)}
 			{window === "Twitter" && (

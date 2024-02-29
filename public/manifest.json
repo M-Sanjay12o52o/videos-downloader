@@ -1,5 +1,5 @@
 {
-  "name": "Twitter Video Downloader",
+  "name": "Video Downloader",
   "description": "Click a button to download a video on a Twitter post, even on private profiles.",
   "version": "1.0.22",
   "manifest_version": 3,
