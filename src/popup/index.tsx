@@ -19,6 +19,7 @@ function App(props: any) {
 			const url = tabs[0]?.url || null;
 			updateUrlValue(url);
 			const windowType = getWindowType(url);
+
 			updateWindow(windowType);
 		});
 	}, [])
@@ -56,7 +57,7 @@ function App(props: any) {
 							<LinkCard formatName={formatName} />
 						</div>
 					))}
-					{urlValue.includes("https://www.youtube.com/watch") && (
+					{!urlValue.includes("https://www.youtube.com/watch") && (
 						<div style={{ fontSize: '1.5em' }}>
 							<p>ℹ️ This tab isn't a Youtube Video page</p>
 						</div>
